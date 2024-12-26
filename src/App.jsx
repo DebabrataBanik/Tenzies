@@ -10,6 +10,8 @@ function App() {
 
   const buttonRef = useRef(null)
 
+  const [rollCount, setRollCount] = useState(0)
+
   let gameWon = dice.every(die => die.isHeld) &&
     dice.every(die => die.value === dice[0].value)
 
@@ -29,6 +31,7 @@ function App() {
   }
 
   function rollDice() {
+    setRollCount(prevCount => prevCount + 1)
     setDice(prevDice =>
       prevDice.map(die =>
         die.isHeld ? die : {
@@ -38,6 +41,7 @@ function App() {
       )
     )
     if (gameWon) {
+      setRollCount(0)
       setDice(generateAllNewDice())
     }
   }
@@ -58,6 +62,10 @@ function App() {
       </div>
       <h1>Tenzies</h1>
       <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+
+      <div className="counter">
+        <p>Roll Count: {rollCount}</p>
+      </div>
 
       <div className="dice__container">
         {

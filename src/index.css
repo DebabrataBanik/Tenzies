@@ -96,3 +96,9 @@ p{
   white-space: nowrap;
   border: 0;
 }
+
+.counter{
+  color: #2B283A;
+  font-size: 15px;
+  font-weight: 700
+}
