@@ -10,6 +10,9 @@ function App() {
 
   const buttonRef = useRef(null)
 
+  let gameWon = dice.every(die => die.isHeld) &&
+    dice.every(die => die.value === dice[0].value)
+
   useEffect(() => {
     if (gameWon) {
       buttonRef.current.focus()
@@ -46,9 +49,6 @@ function App() {
       )
     )
   }
-
-  let gameWon = dice.every(die => die.isHeld) &&
-    dice.every(die => die.value === dice[0].value)
 
   return (
     <main className="main">
