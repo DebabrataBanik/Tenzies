@@ -17,7 +17,7 @@ Tenzies is a fun dice game where the goal is to roll until all the dice show the
 
 ### Live Site
 
-This project has been deployed on Vercel: [Live Site]()
+This project has been deployed on Vercel: [Live Site](https://my-tenzies.vercel.app/)
 
 ### Features
 
