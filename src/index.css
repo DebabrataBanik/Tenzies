@@ -100,5 +100,6 @@ p{
 .counter{
   color: #2B283A;
   font-size: 15px;
-  font-weight: 700
+  font-weight: 700;
+  margin-top: 0.25rem;
 }
