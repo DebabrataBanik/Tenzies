@@ -6,7 +6,6 @@ import Confetti from 'react-confetti'
 function App() {
 
   const [dice, setDice] = useState(() => generateAllNewDice())
-  // initializing state with a function will cause the it to run on every re render although it wont reset so a callback is preffered
 
   const buttonRef = useRef(null)
 
@@ -18,7 +17,6 @@ function App() {
   useEffect(() => {
     if (gameWon) {
       buttonRef.current.focus()
-      // this allows us to focus the button when the game is won immediately after selecting the last sync die
     }
   }, [gameWon])
 
@@ -31,19 +29,17 @@ function App() {
   }
 
   function rollDice() {
-    setRollCount(prevCount => prevCount + 1)
+    setRollCount(prevCount => prevCount + 1);
     setDice(prevDice =>
       prevDice.map(die =>
-        die.isHeld ? die : {
-          ...die,
-          value: Math.ceil(Math.random() * 6)
-        }
+        die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6) }
       )
-    )
-    if (gameWon) {
-      setRollCount(0)
-      setDice(generateAllNewDice())
-    }
+    );
+  }
+
+  function resetGame() {
+    setRollCount(0)
+    setDice(generateAllNewDice())
   }
 
   function hold(id) {
@@ -82,7 +78,7 @@ function App() {
 
       <button
         className="roll-btn"
-        onClick={rollDice}
+        onClick={gameWon ? resetGame : rollDice}
         ref={buttonRef}
       >{gameWon ? "New Game" : "Roll"}</button>
 
