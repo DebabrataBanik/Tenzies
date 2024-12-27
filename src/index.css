@@ -34,7 +34,7 @@ body{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: min(24px, 5vw);
-  margin-block: 2rem;
+  margin-block: 1.5rem;
 }
 
 .die{
@@ -98,8 +98,22 @@ p{
 }
 
 .counter{
+  width: 100%;
+  display: flex;
+  align-items: center;
   color: #2B283A;
   font-size: 15px;
   font-weight: 700;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.counter p{
+  display: flex;
+  flex-direction: column;
+}
+
+.counter p span{
+  font-size: 20px;
+  color: #4A4E74;
+  font-weight: 700;
 }
